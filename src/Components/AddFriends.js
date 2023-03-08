@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 
 const AddFriend = () => {
+    const navigate = useNavigate();
     const [newFriend, setNewFriend] = useState({
         name: '',
         age: '',
@@ -22,7 +24,7 @@ const AddFriend = () => {
             }
         })
             .then(resp => {
-                console.log(resp)
+                navigate('/friends')
             })
             .catch(err => {
                 console.log(err);
